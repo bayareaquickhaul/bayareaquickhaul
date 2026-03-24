@@ -1,0 +1,1161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bay Area Quick Haul | Junk Removal & Hauling</title>
+  <meta
+    name="description"
+    content="Bay Area Quick Haul provides fast, affordable junk removal, furniture pickup, garage cleanouts, and light hauling across Castro Valley and the Bay Area."
+  />
+  <style>
+    :root {
+      --bg: #0b1220;
+      --bg-soft: #111827;
+      --card: rgba(255, 255, 255, 0.08);
+      --card-solid: #ffffff;
+      --text: #0f172a;
+      --text-light: #e5e7eb;
+      --muted: #94a3b8;
+      --primary: #22c55e;
+      --primary-dark: #16a34a;
+      --secondary: #0ea5e9;
+      --accent: #f8fafc;
+      --border: rgba(255, 255, 255, 0.14);
+      --shadow: 0 18px 50px rgba(15, 23, 42, 0.18);
+      --radius: 20px;
+      --max: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background: #f8fafc;
+      line-height: 1.6;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: min(92%, var(--max));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(14px);
+      background: rgba(11, 18, 32, 0.78);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 0;
+      color: white;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: 0.3px;
+    }
+
+    .brand-badge {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      display: grid;
+      place-items: center;
+      color: white;
+      font-size: 20px;
+      box-shadow: 0 10px 24px rgba(34, 197, 94, 0.25);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      align-items: center;
+      font-size: 14px;
+    }
+
+    .nav-links a {
+      color: #e2e8f0;
+      opacity: 0.95;
+    }
+
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--primary);
+      color: white;
+      padding: 11px 16px;
+      border-radius: 999px;
+      font-weight: 700;
+      box-shadow: 0 10px 25px rgba(34, 197, 94, 0.28);
+    }
+
+    .hero {
+      min-height: 96vh;
+      color: white;
+      background:
+        linear-gradient(rgba(11, 18, 32, 0.72), rgba(11, 18, 32, 0.72)),
+        url("https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1600&q=80")
+        center/cover no-repeat;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 34px;
+      align-items: center;
+      padding: 70px 0;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid var(--border);
+      color: #d1fae5;
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-size: clamp(2.4rem, 5vw, 4.8rem);
+      line-height: 1.05;
+      margin: 0 0 18px;
+      letter-spacing: -1.6px;
+    }
+
+    .hero p {
+      font-size: 1.08rem;
+      color: #dbeafe;
+      max-width: 680px;
+      margin: 0 0 24px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 22px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 15px 22px;
+      border-radius: 14px;
+      font-weight: 800;
+      transition: 0.2s ease;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+      box-shadow: 0 12px 28px rgba(34, 197, 94, 0.28);
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,0.08);
+      color: white;
+      border: 1px solid rgba(255,255,255,0.15);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.14);
+    }
+
+    .hero-points {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .pill {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.12);
+      padding: 10px 14px;
+      border-radius: 999px;
+      font-size: 14px;
+      color: #f8fafc;
+    }
+
+    .quote-card {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 26px;
+      padding: 28px;
+      backdrop-filter: blur(14px);
+      box-shadow: var(--shadow);
+    }
+
+    .quote-card h3 {
+      margin-top: 0;
+      margin-bottom: 12px;
+      font-size: 1.35rem;
+    }
+
+    .quote-list {
+      display: grid;
+      gap: 12px;
+      margin: 18px 0 20px;
+    }
+
+    .quote-item {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 12px 14px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 14px;
+      color: #f8fafc;
+    }
+
+    .mini {
+      font-size: 13px;
+      color: #cbd5e1;
+    }
+
+    .section {
+      padding: 88px 0;
+    }
+
+    .section-light {
+      background: #f8fafc;
+    }
+
+    .section-dark {
+      background: linear-gradient(180deg, #0f172a, #111827);
+      color: white;
+    }
+
+    .section-head {
+      max-width: 720px;
+      margin-bottom: 34px;
+    }
+
+    .section-head h2 {
+      font-size: clamp(2rem, 3vw, 3rem);
+      line-height: 1.1;
+      margin: 0 0 12px;
+      letter-spacing: -1px;
+    }
+
+    .section-head p {
+      margin: 0;
+      color: #475569;
+      font-size: 1.02rem;
+    }
+
+    .section-dark .section-head p {
+      color: #cbd5e1;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin-top: -40px;
+      position: relative;
+      z-index: 3;
+    }
+
+    .stat {
+      background: white;
+      border-radius: 20px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+      text-align: center;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 2rem;
+      color: #0f172a;
+      margin-bottom: 6px;
+    }
+
+    .stat span {
+      color: #64748b;
+      font-size: 14px;
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .service-card {
+      background: white;
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .service-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+
+    .service-card .content {
+      padding: 22px;
+    }
+
+    .service-card h3 {
+      margin: 0 0 8px;
+      font-size: 1.25rem;
+    }
+
+    .service-card p {
+      margin: 0;
+      color: #64748b;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .feature-card {
+      background: white;
+      border-radius: 24px;
+      padding: 28px;
+      box-shadow: var(--shadow);
+    }
+
+    .feature-list {
+      display: grid;
+      gap: 14px;
+      margin-top: 20px;
+    }
+
+    .feature {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+
+    .feature-icon {
+      width: 38px;
+      height: 38px;
+      flex: 0 0 38px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #dcfce7, #e0f2fe);
+      color: #0f172a;
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+    }
+
+    .feature-text strong {
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    .feature-text span {
+      color: #64748b;
+      font-size: 15px;
+    }
+
+    .image-stack {
+      position: relative;
+      min-height: 520px;
+    }
+
+    .image-main,
+    .image-float {
+      position: absolute;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .image-main {
+      width: 82%;
+      height: 100%;
+      left: 0;
+      top: 0;
+    }
+
+    .image-float {
+      width: 46%;
+      height: 46%;
+      right: 0;
+      bottom: 18px;
+      border: 8px solid white;
+    }
+
+    .image-main img,
+    .image-float img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .pricing {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .price-card {
+      background: white;
+      border-radius: 24px;
+      padding: 28px;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .price-card.featured {
+      border: 2px solid var(--primary);
+      transform: translateY(-8px);
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: #065f46;
+      background: #d1fae5;
+      padding: 8px 12px;
+      border-radius: 999px;
+      margin-bottom: 16px;
+    }
+
+    .price-card h3 {
+      margin: 0 0 8px;
+      font-size: 1.35rem;
+    }
+
+    .price {
+      font-size: 2.2rem;
+      font-weight: 800;
+      margin-bottom: 6px;
+      color: #0f172a;
+    }
+
+    .price-sub {
+      color: #64748b;
+      margin-bottom: 18px;
+      font-size: 15px;
+    }
+
+    .price-features {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 22px;
+      display: grid;
+      gap: 10px;
+      color: #334155;
+    }
+
+    .price-features li::before {
+      content: "✓";
+      color: var(--primary-dark);
+      font-weight: 800;
+      margin-right: 10px;
+    }
+
+    .process {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .process-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 22px;
+      padding: 28px;
+    }
+
+    .step-number {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+      background: linear-gradient(135deg, rgba(34, 197, 94, 0.24), rgba(14, 165, 233, 0.24));
+      margin-bottom: 18px;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr 0.9fr;
+      gap: 18px;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: 100%;
+      min-height: 230px;
+      object-fit: cover;
+      border-radius: 22px;
+      box-shadow: var(--shadow);
+    }
+
+    .testimonial-wrap {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .testimonial {
+      background: white;
+      border-radius: 22px;
+      padding: 26px;
+      box-shadow: var(--shadow);
+    }
+
+    .stars {
+      color: #f59e0b;
+      margin-bottom: 12px;
+      font-size: 18px;
+      letter-spacing: 1px;
+    }
+
+    .testimonial p {
+      color: #334155;
+      margin: 0 0 18px;
+    }
+
+    .testimonial strong {
+      display: block;
+      color: #0f172a;
+    }
+
+    .faq {
+      display: grid;
+      gap: 16px;
+    }
+
+    .faq-item {
+      background: white;
+      border-radius: 20px;
+      padding: 22px;
+      box-shadow: var(--shadow);
+    }
+
+    .faq-item h3 {
+      margin: 0 0 8px;
+      font-size: 1.08rem;
+    }
+
+    .faq-item p {
+      margin: 0;
+      color: #64748b;
+    }
+
+    .cta-box {
+      background:
+        linear-gradient(135deg, rgba(34, 197, 94, 0.95), rgba(14, 165, 233, 0.95));
+      color: white;
+      border-radius: 30px;
+      padding: 42px;
+      box-shadow: var(--shadow);
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .cta-box h2 {
+      margin: 0 0 10px;
+      font-size: clamp(2rem, 3vw, 3rem);
+      line-height: 1.08;
+    }
+
+    .cta-box p {
+      margin: 0;
+      color: rgba(255,255,255,0.92);
+      max-width: 680px;
+    }
+
+    .cta-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      align-items: stretch;
+    }
+
+    .cta-actions .btn {
+      background: white;
+      color: #0f172a;
+      font-weight: 800;
+    }
+
+    .cta-actions .btn.secondary {
+      background: rgba(255,255,255,0.14);
+      color: white;
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+
+    footer {
+      background: #0b1220;
+      color: #cbd5e1;
+      padding: 34px 0 90px;
+    }
+
+    .footer-grid {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      font-size: 14px;
+    }
+
+    .floating-contact {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 1200;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .float-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      border-radius: 999px;
+      padding: 14px 18px;
+      color: white;
+      font-weight: 800;
+      box-shadow: 0 14px 30px rgba(15, 23, 42, 0.22);
+    }
+
+    .float-text {
+      background: var(--primary);
+    }
+
+    .float-call {
+      background: #0f172a;
+    }
+
+    @media (max-width: 1024px) {
+      .hero-grid,
+      .split,
+      .cta-box {
+        grid-template-columns: 1fr;
+      }
+
+      .stats,
+      .services,
+      .pricing,
+      .process,
+      .testimonial-wrap {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .gallery {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .image-stack {
+        min-height: 420px;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        min-height: auto;
+      }
+
+      .hero-grid {
+        padding: 56px 0 48px;
+      }
+
+      .stats,
+      .services,
+      .pricing,
+      .process,
+      .testimonial-wrap,
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+
+      .quote-card {
+        padding: 22px;
+      }
+
+      .stat {
+        padding: 20px;
+      }
+
+      .section {
+        padding: 68px 0;
+      }
+
+      .cta-box {
+        padding: 28px;
+      }
+
+      .floating-contact {
+        left: 14px;
+        right: 14px;
+        bottom: 14px;
+      }
+
+      .float-btn {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="container nav">
+      <a href="#" class="brand">
+        <div class="brand-badge">BQ</div>
+        <div>Bay Area Quick Haul</div>
+      </a>
+
+      <div class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#process">How It Works</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#faq">FAQ</a>
+      </div>
+
+      <a class="nav-cta" href="tel:15105421227">Call Now</a>
+    </div>
+  </div>
+
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="eyebrow">Fast • Affordable • Local Bay Area Service</div>
+        <h1>Premium junk removal without the hassle.</h1>
+        <p>
+          From single-item pickups to full garage cleanouts, Bay Area Quick Haul
+          makes junk removal simple. Text a photo, get a fast quote, and let us
+          handle the heavy lifting.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="sms:15105421227">Text Photos For A Quote</a>
+          <a class="btn btn-secondary" href="tel:15105421227">Call (510) 542-1227</a>
+        </div>
+
+        <div class="hero-points">
+          <div class="pill">Same-Day Availability</div>
+          <div class="pill">Upfront Pricing</div>
+          <div class="pill">Furniture & Junk Pickup</div>
+          <div class="pill">Serving Castro Valley + Bay Area</div>
+        </div>
+      </div>
+
+      <div class="quote-card">
+        <h3>Quick Pricing Guide</h3>
+        <div class="mini">Fast estimates by text. Final price depends on volume, weight, and dump fees.</div>
+
+        <div class="quote-list">
+          <div class="quote-item"><span>Single Item Pickup</span><strong>$60+</strong></div>
+          <div class="quote-item"><span>Couch / Mattress</span><strong>$80–$120</strong></div>
+          <div class="quote-item"><span>Half Load</span><strong>$150–$300</strong></div>
+          <div class="quote-item"><span>Full Load</span><strong>$400–$700</strong></div>
+        </div>
+
+        <a class="btn btn-primary" style="width:100%;" href="sms:15105421227">Get My Quote Now</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="stats">
+      <div class="stat">
+        <strong>Fast</strong>
+        <span>Quick responses and flexible scheduling</span>
+      </div>
+      <div class="stat">
+        <strong>Local</strong>
+        <span>Based in Castro Valley and serving the Bay Area</span>
+      </div>
+      <div class="stat">
+        <strong>Simple</strong>
+        <span>Text photos and get an easy quote</span>
+      </div>
+      <div class="stat">
+        <strong>Reliable</strong>
+        <span>Professional service from start to finish</span>
+      </div>
+    </div>
+  </div>
+
+  <section id="services" class="section section-light">
+    <div class="container">
+      <div class="section-head">
+        <h2>Services built for real-life cleanups</h2>
+        <p>
+          Whether you need one bulky item gone or a whole space cleared out, we
+          help homeowners, renters, and small businesses get it done fast.
+        </p>
+      </div>
+
+      <div class="services">
+        <div class="service-card">
+          <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1200&q=80" alt="Furniture pickup service">
+          <div class="content">
+            <h3>Furniture Pickup</h3>
+            <p>Couches, mattresses, tables, dressers, and other bulky household items removed quickly.</p>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <img src="https://images.unsplash.com/photo-1558611848-73f7eb4001ab?auto=format&fit=crop&w=1200&q=80" alt="Garage cleanout service">
+          <div class="content">
+            <h3>Garage Cleanouts</h3>
+            <p>Old storage, broken equipment, and cluttered garages cleared so you can take your space back.</p>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1200&q=80" alt="General junk removal">
+          <div class="content">
+            <h3>General Junk Removal</h3>
+            <p>Boxes, debris, unwanted items, move-out leftovers, and more hauled away with minimal stress.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-light">
+    <div class="container split">
+      <div class="feature-card">
+        <div class="section-head" style="margin-bottom:0;">
+          <h2>Why people choose Bay Area Quick Haul</h2>
+          <p>
+            Premium service is not about being fancy. It is about being clean,
+            responsive, dependable, and easy to work with.
+          </p>
+        </div>
+
+        <div class="feature-list">
+          <div class="feature">
+            <div class="feature-icon">✓</div>
+            <div class="feature-text">
+              <strong>Quick communication</strong>
+              <span>Text us photos and get a fast estimate without going back and forth forever.</span>
+            </div>
+          </div>
+
+          <div class="feature">
+            <div class="feature-icon">✓</div>
+            <div class="feature-text">
+              <strong>Fair, transparent pricing</strong>
+              <span>Clear ranges based on item size, volume, weight, and disposal fees.</span>
+            </div>
+          </div>
+
+          <div class="feature">
+            <div class="feature-icon">✓</div>
+            <div class="feature-text">
+              <strong>Convenient scheduling</strong>
+              <span>We work to fit your day, with same-day or next-day options when available.</span>
+            </div>
+          </div>
+
+          <div class="feature">
+            <div class="feature-icon">✓</div>
+            <div class="feature-text">
+              <strong>Local service</strong>
+              <span>Serving Castro Valley, Oakland, San Leandro, Hayward, Fremont, and nearby areas.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="image-stack">
+        <div class="image-main">
+          <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=1400&q=80" alt="Clean organized garage">
+        </div>
+        <div class="image-float">
+          <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1000&q=80" alt="Clean empty room after junk removal">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="pricing" class="section section-dark">
+    <div class="container">
+      <div class="section-head">
+        <h2>Simple pricing that feels premium</h2>
+        <p>
+          These are common ranges. For the fastest quote, text photos of what
+          needs to go and your location.
+        </p>
+      </div>
+
+      <div class="pricing">
+        <div class="price-card">
+          <div class="tag">Starter</div>
+          <h3>Single Item</h3>
+          <div class="price">$60+</div>
+          <div class="price-sub">Great for one bulky item or a quick pickup</div>
+          <ul class="price-features">
+            <li>Chairs, small furniture, boxes</li>
+            <li>Quick curbside or simple pickups</li>
+            <li>Fast estimate by text</li>
+          </ul>
+          <a class="btn btn-primary" href="sms:15105421227">Text For Quote</a>
+        </div>
+
+        <div class="price-card featured">
+          <div class="tag">Most Popular</div>
+          <h3>Half Load</h3>
+          <div class="price">$150–$300</div>
+          <div class="price-sub">Ideal for garage corners, room cleanouts, or a few larger pieces</div>
+          <ul class="price-features">
+            <li>Great value for medium jobs</li>
+            <li>Furniture + bags + loose clutter</li>
+            <li>Flexible scheduling</li>
+          </ul>
+          <a class="btn btn-primary" href="sms:15105421227">Book My Pickup</a>
+        </div>
+
+        <div class="price-card">
+          <div class="tag">Full Service</div>
+          <h3>Full Load</h3>
+          <div class="price">$400–$700</div>
+          <div class="price-sub">Best for major cleanouts, move-outs, and bigger hauling jobs</div>
+          <ul class="price-features">
+            <li>Larger cleanouts and heavier loads</li>
+            <li>Garage, storage, or room clear-outs</li>
+            <li>Fast communication from start to finish</li>
+          </ul>
+          <a class="btn btn-primary" href="sms:15105421227">Get My Estimate</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="process" class="section section-dark">
+    <div class="container">
+      <div class="section-head">
+        <h2>How it works</h2>
+        <p>
+          We keep the process simple so you can get rid of unwanted junk without
+          wasting time.
+        </p>
+      </div>
+
+      <div class="process">
+        <div class="process-card">
+          <div class="step-number">1</div>
+          <h3>Text photos</h3>
+          <p>Send us pictures of the items along with your city or neighborhood.</p>
+        </div>
+
+        <div class="process-card">
+          <div class="step-number">2</div>
+          <h3>Get a fast quote</h3>
+          <p>We will give you a price range and confirm timing based on your job.</p>
+        </div>
+
+        <div class="process-card">
+          <div class="step-number">3</div>
+          <h3>We haul it away</h3>
+          <p>We arrive, load it up, and help clear your space quickly and professionally.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-light">
+    <div class="container">
+      <div class="section-head">
+        <h2>Clean results people actually want</h2>
+        <p>
+          A better-looking website should also show a cleaner, more polished outcome.
+        </p>
+      </div>
+
+      <div class="gallery">
+        <img src="https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&w=1200&q=80" alt="Cleaned outdoor space">
+        <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1200&q=80" alt="Clean living room">
+        <img src="https://images.unsplash.com/photo-1480074568708-e7b720bb3f09?auto=format&fit=crop&w=1200&q=80" alt="Clean home exterior">
+      </div>
+    </div>
+  </section>
+
+  <section id="reviews" class="section section-light">
+    <div class="container">
+      <div class="section-head">
+        <h2>What customers want from a hauling company</h2>
+        <p>
+          Until you have your own reviews, this section still helps communicate the
+          experience people are looking for: speed, trust, and no hassle.
+        </p>
+      </div>
+
+      <div class="testimonial-wrap">
+        <div class="testimonial">
+          <div class="stars">★★★★★</div>
+          <p>
+            Quick response, fair pricing, and the pickup was way easier than trying
+            to figure it out myself.
+          </p>
+          <strong>Fast communication</strong>
+          <span>What customers expect</span>
+        </div>
+
+        <div class="testimonial">
+          <div class="stars">★★★★★</div>
+          <p>
+            They showed up ready to work and helped clear out space I had been putting
+            off for months.
+          </p>
+          <strong>Reliable service</strong>
+          <span>What customers expect</span>
+        </div>
+
+        <div class="testimonial">
+          <div class="stars">★★★★★</div>
+          <p>
+            Super easy to text pictures, get a quote, and schedule everything without
+            wasting time.
+          </p>
+          <strong>Simple process</strong>
+          <span>What customers expect</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" class="section section-light">
+    <div class="container">
+      <div class="section-head">
+        <h2>Frequently asked questions</h2>
+        <p>
+          Good websites answer the questions people already have before they even ask.
+        </p>
+      </div>
+
+      <div class="faq">
+        <div class="faq-item">
+          <h3>How do I get a quote?</h3>
+          <p>Text photos of the items along with your location. We will reply with a fast estimate.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>Do you offer same-day service?</h3>
+          <p>Yes, when availability allows. Text us and we will let you know the soonest opening.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>What areas do you serve?</h3>
+          <p>We are based in Castro Valley and serve much of the Bay Area, including Oakland, San Leandro, Hayward, Fremont, and nearby cities.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>What affects pricing?</h3>
+          <p>Price depends on item size, total volume, weight, access, travel distance, and disposal fees.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-light">
+    <div class="container">
+      <div class="cta-box">
+        <div>
+          <h2>Ready to clear it out?</h2>
+          <p>
+            Text us photos now and get a fast quote for junk removal, furniture
+            pickup, or cleanout service anywhere around Castro Valley and the Bay Area.
+          </p>
+        </div>
+
+        <div class="cta-actions">
+          <a class="btn" href="sms:15105421227">Text (510) 542-1227</a>
+          <a class="btn secondary" href="tel:15105421227">Call Now</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <strong style="color:white;">Bay Area Quick Haul</strong><br>
+        Castro Valley, CA • Bay Area Service
+      </div>
+
+      <div class="footer-links">
+        <a href="#services">Services</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#process">How It Works</a>
+        <a href="#faq">FAQ</a>
+        <a href="tel:15105421227">(510) 542-1227</a>
+      </div>
+    </div>
+  </footer>
+
+  <div class="floating-contact">
+    <a class="float-btn float-text" href="sms:15105421227">Text For Quote</a>
+    <a class="float-btn float-call" href="tel:15105421227">Call Now</a>
+  </div>
+</body>
+</html>
